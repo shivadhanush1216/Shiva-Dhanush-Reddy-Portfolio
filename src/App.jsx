@@ -10,6 +10,10 @@ import {
 // import profileImage from "./assets/profileImage.png";
 import profileImage from "./assets/img.jpeg";
 import portrait from "./assets/portrait-cutout.webp";
+import shotCopilot from "./assets/projects/copilot-app.webp";
+import shotZomato from "./assets/projects/zomato-wireframes-two.webp";
+import shotYtm from "./assets/projects/ytm-cover.webp";
+import shotForecast from "./assets/projects/forecast-chart.webp";
 
 // ─── Google Font: Inter ───────────────────────────────────────────────────────
 const fontLink = document.createElement("link");
@@ -36,7 +40,7 @@ const data = {
   email: "shivadhanushreddythaduri@gmail.com",
   linkedin: "https://www.linkedin.com/in/taduri-shiva-dhanush-reddy",
   github: "https://github.com/shivadhanush1216",
-  resumePdf: "https://drive.google.com/file/d/1O8At4L1fqTdkyudqOIz-3gv-JPYogDOA/view?usp=drive_link",
+  resumePdf: "https://drive.google.com/file/d/1Zn_ZaoFl7yNjGmq7y5L-8--UUO_Ax9Z8/view?usp=sharing",
   hero: {
     headline: "I turn User Research into Product Decisions.",
     sub: "A product-minded engineer and MSEM student at Tufts, turning user research into product decisions and shipping AI products end to end. Open to Summer 2027 internships.",
@@ -55,37 +59,47 @@ const data = {
   caseStudies: [
     {
       title: "TGI Content Copilot",
-      type: "AI Product · Live",
-      desc: "Built and deployed an agentic RAG app that drafts Instagram, Reel and email copy from Tufts Gordon Institute's public pages. Rule-based guardrails verify facts in code, backed by 46 unit tests and a 23-brief evaluation harness.",
-      tools: ["LangGraph", "RAG", "Gemini", "FastAPI", "ChromaDB", "PostgreSQL"],
+      tags: ["AI Agent", "RAG", "Live"],
+      desc: "An AI agent that drafts marketing copy from Tufts Gordon Institute's public pages and verifies every fact in code, backed by 46 unit tests and a 23-brief evaluation harness.",
+      image: shotCopilot,
+      imageAlt: "The TGI Content Copilot web app",
+      color: "#3172AE",
       links: [
         { label: "Live App", href: "https://tgi-content-copilot.onrender.com" },
         { label: "View Code", href: "https://github.com/shivadhanush1216/content-copilot" },
       ],
     },
     {
-      title: "Zomato Scheduled Delivery Redesign",
-      type: "End-to-End PM Case Study",
-      desc: "Found that 4 of 5 frequent users I interviewed had never discovered Scheduled Delivery. Built a PRD with 7 user stories, RICE prioritisation, a DAU dashboard, and 5 Figma wireframes.",
-      tools: ["User Research", "PRD", "RICE", "MoSCoW", "Figma", "Google Sheets"],
+      title: "Zomato Scheduled Delivery",
+      tags: ["Product Case Study", "User Research"],
+      desc: "4 of 5 frequent users I interviewed had never found Scheduled Delivery. I took the fix from research to a PRD with 7 user stories, RICE prioritisation and Figma wireframes.",
+      image: shotZomato,
+      imageAlt: "Low-fidelity wireframes for scheduling a Zomato order",
+      color: "#C0282F",
       links: [
         { label: "View Case Study", href: "https://app.notion.com/p/Zomato-Scheduled-Delivery-Redesign-PM-Case-Study-351a8a7d1395816ea395efd972689ad3" },
       ],
     },
     {
-      title: "YouTube Music Product Teardown",
-      type: "Product Analysis",
-      desc: "Diagnosed 3 core UX failures backed by real user data. Root cause analysis and competitor-benchmarked fixes with success metrics.",
-      tools: ["Product Analysis", "Competitive Research", "Root Cause Analysis"],
+      title: "YouTube Music Teardown",
+      tags: ["Product Analysis", "Root Cause"],
+      desc: "Traced 3 recurring UX failures, backed by real user reports, to one root cause, and proposed fixes benchmarked against Spotify and Deezer.",
+      image: shotYtm,
+      imageAlt: "Cover slide of the YouTube Music teardown deck",
+      color: "#2A2A2A",
       links: [
         { label: "View Teardown", href: "https://drive.google.com/file/d/1ZCvcxRnlu4GUR6cWHgXUJZE17EYu4wSq/view?usp=sharing" },
       ],
     },
     {
       title: "Retail Demand Forecasting",
-      type: "ML Dashboard · Live",
-      desc: "Built and deployed a dashboard where a store planner compares 4 forecasting models for any of 45 stores and tests what-if scenarios before committing to an inventory plan.",
-      tools: ["Python", "Prophet", "ARIMA", "XGBoost", "LSTM", "Streamlit"],
+      tags: ["Machine Learning", "Live Dashboard"],
+      desc: "A dashboard where a store planner compares 4 forecasting models for any of 45 stores and tests what-if scenarios before committing to an inventory plan.",
+      image: shotForecast,
+      imageAlt: "Weekly sales history chart in the forecasting dashboard",
+      imageFit: "contain",
+      imageBg: "#FFFFFF",
+      color: "#2D6A4F",
       links: [
         { label: "Live Demo", href: "https://walmartdemandforecasting.streamlit.app/" },
       ],
@@ -236,8 +250,8 @@ const HeroVisual = () => (
       <img
         src={portrait}
         alt="Shiva Dhanush Reddy Taduri"
-        width="512"
-        height="980"
+        width="754"
+        height="1154"
         className="absolute bottom-0 left-1/2 -translate-x-1/2 select-none"
         style={{ height: "100%", width: "auto", objectFit: "contain", objectPosition: "top" }}
       />
@@ -316,6 +330,62 @@ const ExperienceItem = ({ job, last }) => {
         </button>
       )}
     </div>
+  );
+};
+
+// ─── Project card ─────────────────────────────────────────────────────────────
+const ProjectCard = ({ cs }) => {
+  const font = "'General Sans', Inter, sans-serif";
+  return (
+    <article className="group h-full flex flex-col rounded-3xl overflow-hidden" style={{ background: cs.color, fontFamily: font }}>
+      <a
+        href={cs.links[0].href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${cs.links[0].label}: ${cs.title}`}
+        className="block overflow-hidden"
+        style={{ aspectRatio: "16 / 9.5", background: `color-mix(in srgb, ${cs.color} 22%, #ffffff)`, padding: "28px 28px 0" }}
+      >
+        <div
+          className="w-full h-full overflow-hidden rounded-t-xl transition-transform duration-500 ease-out group-hover:-translate-y-1"
+          style={{ background: cs.imageBg || "#fff", boxShadow: "0 12px 32px -12px rgba(10,25,47,0.35)" }}
+        >
+          <img
+            src={cs.image}
+            alt={cs.imageAlt}
+            loading="lazy"
+            className="w-full h-full"
+            style={{ objectFit: cs.imageFit || "cover", objectPosition: cs.imageFit === "contain" ? "center" : "top center" }}
+          />
+        </div>
+      </a>
+      <div className="flex flex-col flex-1 p-6 md:p-7 text-white">
+        <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.75rem)", lineHeight: 1.2, fontWeight: 600 }}>{cs.title}</h3>
+        <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1" style={{ fontSize: "1rem" }}>
+          {cs.tags.map((t, i) => (
+            <React.Fragment key={t}>
+              {i > 0 && <span aria-hidden="true">•</span>}
+              <span>{t}</span>
+            </React.Fragment>
+          ))}
+        </p>
+        <p className="mt-4" style={{ fontSize: "0.9375rem", lineHeight: 1.6, color: "rgba(255,255,255,0.92)" }}>{cs.desc}</p>
+        <div className="mt-auto pt-6 flex flex-wrap gap-x-6 gap-y-2">
+          {cs.links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline"
+              style={{ fontSize: "0.9375rem" }}
+            >
+              {l.label} <ExternalLink size={14} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </article>
   );
 };
 
@@ -463,66 +533,22 @@ const App = () => {
       </section>
 
       {/* ── WORK (Case Studies) ── */}
-      <section id="work" style={{ background: S.surface }}>
-        <div className="max-w-5xl mx-auto px-6 py-20">
+      <section id="work" style={{ background: S.bg }}>
+        <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
           <Reveal>
-            <p
-              style={{ color: S.accent, fontFamily: "'General Sans', Inter, sans-serif" }}
-              className="text-xs font-semibold tracking-widest uppercase mb-2"
-            >
-              Case Studies
-            </p>
-            <h2
-              style={{ color: S.navy, fontFamily: "'General Sans', Inter, sans-serif" }}
-              className="text-3xl font-bold mb-12"
-            >
-              Work
-            </h2>
+            <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+              <h2 style={{ color: S.ink, fontSize: "clamp(2.25rem, 4.2vw, 3rem)", lineHeight: 1.1, fontWeight: 500, letterSpacing: "-0.01em" }}>
+                My Work
+              </h2>
+              <p style={{ color: S.body }} className="mt-4 text-lg leading-relaxed">
+                Product case studies and AI products, from user research to deployed code.
+              </p>
+            </div>
           </Reveal>
-
           <div className="grid md:grid-cols-2 gap-6">
             {data.caseStudies.map((cs, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div
-                  style={{ background: S.bg, border: `1px solid ${S.border}`, fontFamily: "'General Sans', Inter, sans-serif" }}
-                  className="rounded-2xl p-7 flex flex-col h-full hover:shadow-md transition-shadow"
-                >
-                  <span
-                    style={{ background: `${S.accent}12`, color: S.accent, fontFamily: "'General Sans', Inter, sans-serif" }}
-                    className="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full self-start mb-4"
-                  >
-                    {cs.type}
-                  </span>
-                  <h3
-                    style={{ color: S.navy, fontFamily: "'General Sans', Inter, sans-serif" }}
-                    className="text-xl font-bold mb-3"
-                  >
-                    {cs.title}
-                  </h3>
-                  <p
-                    style={{ color: S.textMuted, fontFamily: "'General Sans', Inter, sans-serif" }}
-                    className="text-sm leading-relaxed mb-5 flex-1"
-                  >
-                    {cs.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {cs.tools.map((t) => <Tag key={t} label={t} />)}
-                  </div>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
-                    {cs.links.map((l) => (
-                      <a
-                        key={l.href}
-                        href={l.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: S.accent, fontFamily: "'General Sans', Inter, sans-serif" }}
-                        className="text-sm font-semibold flex items-center gap-1 hover:opacity-70 transition-opacity"
-                      >
-                        {l.label} <ExternalLink size={13} />
-                      </a>
-                    ))}
-                  </div>
-                </div>
+              <Reveal key={cs.title} delay={i * 80}>
+                <ProjectCard cs={cs} />
               </Reveal>
             ))}
           </div>

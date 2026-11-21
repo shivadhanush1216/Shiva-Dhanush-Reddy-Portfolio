@@ -4,13 +4,8 @@ import {
   Linkedin,
   FileText,
   ExternalLink,
-  Send,
-  Loader,
-  Search,
   Menu,
   X,
-  ChevronRight,
-  MessageSquare,
 } from "lucide-react";
 // import profileImage from "./assets/profileImage.png";
 import profileImage from "./assets/img.jpeg";
@@ -34,49 +29,87 @@ const data = {
   name: "Shiva Dhanush Reddy Taduri",
   short: "SDR",
   email: "shivadhanushreddythaduri@gmail.com",
-  phone: "+91 92474 48076",
-  linkedin: "https://linkedin.com/in/taduri-shiva-dhanush-reddy",
+  linkedin: "https://www.linkedin.com/in/taduri-shiva-dhanush-reddy",
+  github: "https://github.com/shivadhanush1216",
   resumePdf: "https://drive.google.com/file/d/1O8At4L1fqTdkyudqOIz-3gv-JPYogDOA/view?usp=drive_link",
   hero: {
     headline: "I turn User Research into Product Decisions.",
-    sub: "MSIM Student @ Tufts. Product Analyst candidate with a fintech internship and two end-to-end PM case studies.",
+    sub: "MSEM student at Tufts with a CS and AI background. I've shipped fintech payment flows, deployed an AI agent, and taken product case studies from user interviews to wireframes.",
   },
   about: [
-    "I'm a CS graduate specialising in AI/ML,MSIM student at Tufts University. I worked in a 4-person team at Small Fare Services to ship Payblee, a fintech bill-payment platform.",
+    "I'm a CS graduate specialising in AI/ML and an MSEM (Engineering Management) student at Tufts University. At Small Fare Services I worked in a 4-person team to ship Payblee, a fintech bill-payment platform.",
+    "Recently I built and deployed TGI Content Copilot, an AI agent that drafts marketing copy from a graduate school's public web pages and checks every link, date and deadline in code before a person sees the draft.",
     "On the product side, I ran user interviews, wrote a full PRD, built a DAU metrics dashboard tracking 6 KPIs, and designed 5 lo-fi wireframes in Figma for a Zomato Scheduled Delivery redesign.",
-    "I'm looking for Summer 2027 PM and Product Analyst internships where technical background and product thinking both matter.",
+    "I'm looking for Summer 2027 PM, TPM and Product Analyst internships where technical background and product thinking both matter.",
   ],
-  // location: "Currently in Hyderabad. Moving to Medford, MA in August 2026.",
+  location: "Based in Medford, MA",
   caseStudies: [
+    {
+      title: "TGI Content Copilot",
+      type: "AI Product · Live",
+      desc: "Built and deployed an agentic RAG app that drafts Instagram, Reel and email copy from Tufts Gordon Institute's public pages. Rule-based guardrails verify facts in code, backed by 46 unit tests and a 23-brief evaluation harness.",
+      tools: ["LangGraph", "RAG", "Gemini", "FastAPI", "ChromaDB", "PostgreSQL"],
+      links: [
+        { label: "Live App", href: "https://tgi-content-copilot.onrender.com" },
+        { label: "View Code", href: "https://github.com/shivadhanush1216/content-copilot" },
+      ],
+    },
     {
       title: "Zomato Scheduled Delivery Redesign",
       type: "End-to-End PM Case Study",
-      desc: "Identified an 80% feature discovery failure through 5 user interviews. Built PRD, RICE prioritisation, DAU dashboard, and 5 Figma wireframes.",
+      desc: "Found that 4 of 5 frequent users I interviewed had never discovered Scheduled Delivery. Built a PRD with 7 user stories, RICE prioritisation, a DAU dashboard, and 5 Figma wireframes.",
       tools: ["User Research", "PRD", "RICE", "MoSCoW", "Figma", "Google Sheets"],
-      link: "https://notion.so/351a8a7d1395816ea395efd972689ad3",
-      cta: "View Case Study",
+      links: [
+        { label: "View Case Study", href: "https://app.notion.com/p/Zomato-Scheduled-Delivery-Redesign-PM-Case-Study-351a8a7d1395816ea395efd972689ad3" },
+      ],
     },
     {
       title: "YouTube Music Product Teardown",
       type: "Product Analysis",
       desc: "Diagnosed 3 core UX failures backed by real user data. Root cause analysis and competitor-benchmarked fixes with success metrics.",
       tools: ["Product Analysis", "Competitive Research", "Root Cause Analysis"],
-      link: "https://drive.google.com/file/d/1ZCvcxRnlu4GUR6cWHgXUJZE17EYu4wSq/view?usp=sharing",
-      cta: "View Teardown",
+      links: [
+        { label: "View Teardown", href: "https://drive.google.com/file/d/1ZCvcxRnlu4GUR6cWHgXUJZE17EYu4wSq/view?usp=sharing" },
+      ],
+    },
+    {
+      title: "Retail Demand Forecasting",
+      type: "ML Dashboard · Live",
+      desc: "Built and deployed a dashboard where a store planner compares 4 forecasting models for any of 45 stores and tests what-if scenarios before committing to an inventory plan.",
+      tools: ["Python", "Prophet", "ARIMA", "XGBoost", "LSTM", "Streamlit"],
+      links: [
+        { label: "Live Demo", href: "https://walmartdemandforecasting.streamlit.app/" },
+      ],
     },
   ],
-  experience: {
-    company: "Small Fare Services Pvt. Ltd.",
-    role: "Product and Frontend Developer Intern",
-    period: "Jun 2025 – Sep 2025",
-    product: "Payblee · Fintech bill-payment platform",
-    bullets: [
-      "Shipped 5 end-to-end user journeys (dashboard, credit score, loan repayment, insurance, wallet) by translating wireframes into React.js and Tailwind CSS.",
-      "Reduced page load time by 35% by optimising component architecture and implementing async API calls with loading and error states.",
-      "Increased user engagement by 30% by building personalised greeting system, real-time notifications, and multi-step payment flow.",
-      "Cut future integration effort by 25% via PCI-DSS compliant component library with Razorpay/Cashfree SDK integration.",
-    ],
-  },
+  experience: [
+    {
+      company: "Tufts Gordon Institute, Tufts University",
+      role: "Marketing Intern",
+      period: "Sep 2026 – Present",
+      product: "Digital marketing and student outreach for graduate programs",
+      logo: "/Tufts_University_logo.png",
+      logoClass: "h-8",
+      bullets: [
+        "Shot and edited an Instagram Reel for TGI's graduate programs that reached 5,000+ views, and created Instagram posts and blog articles.",
+        "Analyzed and optimized TGI program pages for search, and documented the findings and changes for the team.",
+      ],
+    },
+    {
+      company: "Small Fare Services Pvt. Ltd.",
+      role: "Frontend Developer Intern",
+      period: "Jun 2025 – Sep 2025",
+      product: "Payblee · Fintech bill-payment platform",
+      logo: "/smallfare_logo.jpg",
+      logoClass: "h-16",
+      bullets: [
+        "Shipped 5 end-to-end user journeys (dashboard, credit score, loan repayment, insurance, wallet) by translating wireframes into React.js and Tailwind CSS, iterating daily with the product lead.",
+        "Reduced page load time by 35% by optimising component architecture and implementing async API calls with loading and error states.",
+        "Increased user engagement by 30% by building a personalised greeting system, real-time notifications, and a multi-step payment flow.",
+        "Cut future integration effort by 25% with a reusable component library, session management, and Razorpay/Cashfree SDK integration, following payment card security standards.",
+      ],
+    },
+  ],
   skills: {
     Product: [
       "User Research",
@@ -89,66 +122,10 @@ const data = {
       "Product Teardown",
       "Agile/Scrum",
     ],
+    "AI & Data": ["RAG", "LangGraph", "ChromaDB", "Gemini API", "LLM Evaluation", "Python (pandas)", "SQL"],
+    Technical: ["React.js", "Tailwind CSS", "JavaScript", "FastAPI", "PostgreSQL", "REST APIs", "Git"],
     Tools: ["Figma", "FigJam", "Notion", "Google Sheets", "Excel", "Jira", "Gamma"],
-    Technical: ["React.js", "Tailwind CSS", "JavaScript", "Python", "SQL", "Git"],
   },
-  aiContext: `
-    Shiva Dhanush Reddy Taduri is a Product Analyst candidate targeting Summer 2027 PM and Product Analyst internships in the US market.
-
-    EDUCATION:
-    - Incoming MSIM (Master of Science, Innovation and Management) @ Tufts University, Medford MA — Aug 2026
-    - B.Tech CS/AI-ML, Malla Reddy University, Hyderabad — GPA 8.56/10
-
-    EXPERIENCE:
-    - Product and Frontend Developer Intern at Small Fare Services Pvt. Ltd. (Jun–Sep 2025)
-    - Shipped Payblee, a fintech bill-payment platform
-    - 35% page load reduction, 30% engagement increase, 25% integration effort reduction
-
-    PM CASE STUDIES:
-    1. Zomato Scheduled Delivery Redesign (Feb–Apr 2026)
-       - 5 primary user interviews using Mom Test principles
-       - 80% feature discovery failure uncovered
-       - RICE scoring + MoSCoW scoping
-       - 6-KPI DAU dashboard (HEART + AARRR)
-       - 5 Figma wireframes + FigJam user flow
-       - Link: https://notion.so/351a8a7d1395816ea395efd972689ad3
-
-    2. YouTube Music Product Teardown (Apr 2026)
-       - 3 UX failures backed by sourced data (shuffle bug 500+ complaints, AI flooding 370+ Reddit upvotes, background play paywall)
-       - Root cause: architecture misalignment (YouTube feature vs standalone product)
-       - Benchmarked Spotify and Deezer
-       - 3 fixes with success metrics (NPS, DAU, 30-day targets)
-       - Link: https://drive.google.com/file/d/1ZCvcxRnlu4GUR6cWHgXUJZE17EYu4wSq/view?usp=sharing
-
-    SKILLS — Product: User Research, PRD Writing, RICE, MoSCoW, HEART, AARRR, Wireframing, Product Teardown, Agile/Scrum
-    SKILLS — Tools: Figma, FigJam, Notion, Google Sheets, Excel, Jira, Gamma
-    SKILLS — Technical: React.js, Tailwind CSS, JavaScript, Python, SQL, Git
-
-    CONTACT: shivadhanushreddythaduri@gmail.com | +91 92474 48076
-    LinkedIn: linkedin.com/in/taduri-shiva-dhanush-reddy
-    Location: Hyderabad now → Medford MA from Aug 2026
-  `,
-};
-
-// ─── Gemini API ───────────────────────────────────────────────────────────────
-const apiKey = ""; // injected by environment
-
-const callGemini = async (prompt) => {
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-      }
-    );
-    if (!res.ok) throw new Error("API error");
-    const d = await res.json();
-    return d.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-  } catch {
-    return "Connection error. Please check your API key and try again.";
-  }
 };
 
 // ─── Scroll Reveal ────────────────────────────────────────────────────────────
@@ -210,156 +187,6 @@ const Tag = ({ label }) => (
     {label}
   </span>
 );
-
-// ─── AI Chat Panel ────────────────────────────────────────────────────────────
-const AIChat = () => {
-  const [q, setQ] = useState("");
-  const [resp, setResp] = useState("");
-  const [loading, setLoading] = useState("");
-
-  const ask = async () => {
-    if (!q.trim()) return;
-    setLoading(true);
-    const r = await callGemini(
-      `You are a portfolio assistant for Shiva Dhanush Reddy Taduri, a Product Analyst candidate.
-      Answer questions about his background, PM case studies, internship, and skills.
-      Keep answers concise, professional, and PM-focused. Do not make up facts.
-      Context: ${data.aiContext}
-      User question: "${q}"`
-    );
-    setResp(r);
-    setLoading(false);
-  };
-
-  return (
-    <div
-      style={{ border: `1px solid ${S.border}`, background: S.bg, fontFamily: "Inter, sans-serif" }}
-      className="rounded-2xl p-6 flex flex-col h-full min-h-[340px]"
-    >
-      <div
-        style={{ color: S.navy }}
-        className="flex items-center gap-2 mb-4 font-semibold text-sm uppercase tracking-wider"
-      >
-        <MessageSquare size={16} style={{ color: S.accent }} />
-        Ask About Me
-      </div>
-      <div className="flex-1 mb-4 overflow-y-auto space-y-3">
-        {!resp && !loading && (
-          <p style={{ color: S.textMuted }} className="text-sm mt-6 text-center">
-            Ask about Shiva's PM case studies, internship, skills, or Tufts MSIM.
-          </p>
-        )}
-        {q && resp && (
-          <div className="flex justify-end">
-            <span
-              style={{ background: S.navy, color: "#fff" }}
-              className="px-3 py-2 rounded-2xl rounded-tr-sm text-sm max-w-xs"
-            >
-              {q}
-            </span>
-          </div>
-        )}
-        {loading && <Loader size={16} className="animate-spin" style={{ color: S.accent }} />}
-        {resp && (
-          <div className="flex justify-start">
-            <span
-              style={{ background: S.surface, color: S.navy, border: `1px solid ${S.border}` }}
-              className="px-3 py-2 rounded-2xl rounded-tl-sm text-sm max-w-sm"
-            >
-              {resp}
-            </span>
-          </div>
-        )}
-      </div>
-      <div className="relative">
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && ask()}
-          placeholder="Ask anything..."
-          style={{ border: `1px solid ${S.border}`, color: S.navy, background: S.surface, fontFamily: "Inter, sans-serif" }}
-          className="w-full py-2 pl-4 pr-10 text-sm rounded-full focus:outline-none"
-        />
-        <button onClick={ask} className="absolute right-3 top-1/2 -translate-y-1/2">
-          <Send size={14} style={{ color: S.accent }} />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-// ─── Job Fit Check Panel ──────────────────────────────────────────────────────
-const JobFitCheck = () => {
-  const [jd, setJd] = useState("");
-  const [result, setResult] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const analyze = async () => {
-    if (!jd.trim()) return;
-    setLoading(true);
-    const r = await callGemini(
-      `You are a senior recruiter reviewing a Product Analyst / PM internship candidate.
-      Candidate profile: ${data.aiContext}
-      Job description: "${jd}"
-      Provide a structured fit analysis in 3 sections:
-      1. Fit: List 2-3 strongest matches between the candidate and role (be specific, cite his actual experience)
-      2. Gaps: List 1-2 areas where the candidate may need to develop
-      3. Verdict: One-sentence summary and a fit score out of 10
-      Keep it professional and concise. Format as plain text with clear section headers.`
-    );
-    setResult(r);
-    setLoading(false);
-  };
-
-  return (
-    <div
-      style={{ border: `1px solid ${S.border}`, background: S.bg, fontFamily: "Inter, sans-serif" }}
-      className="rounded-2xl p-6 flex flex-col h-full min-h-[340px]"
-    >
-      <div
-        style={{ color: S.navy }}
-        className="flex items-center gap-2 mb-4 font-semibold text-sm uppercase tracking-wider"
-      >
-        <Search size={16} style={{ color: S.accent }} />
-        Job Fit Check
-      </div>
-      {!result ? (
-        <div className="flex flex-col flex-1">
-          <textarea
-            value={jd}
-            onChange={(e) => setJd(e.target.value)}
-            placeholder="Paste a job description here..."
-            style={{ border: `1px solid ${S.border}`, color: S.navy, background: S.surface, fontFamily: "Inter, sans-serif", resize: "none" }}
-            className="flex-1 p-3 mb-3 text-sm rounded-xl focus:outline-none min-h-[160px]"
-          />
-          <button
-            onClick={analyze}
-            disabled={loading}
-            style={{ background: S.navy, color: "#fff", fontFamily: "Inter, sans-serif" }}
-            className="w-full py-2 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-          >
-            {loading ? <Loader size={16} className="animate-spin" /> : "Analyse Fit"}
-          </button>
-        </div>
-      ) : (
-        <div className="flex-1 overflow-y-auto">
-          <pre
-            style={{ color: S.navy, fontFamily: "Inter, sans-serif", whiteSpace: "pre-wrap", fontSize: "0.82rem", lineHeight: "1.6" }}
-          >
-            {result}
-          </pre>
-          <button
-            onClick={() => { setResult(""); setJd(""); }}
-            style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
-            className="mt-4 text-xs hover:underline"
-          >
-            Check another role →
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
 
 // ─── Main App ─────────────────────────────────────────────────────────────────
 const App = () => {
@@ -479,7 +306,7 @@ const App = () => {
             style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
             className="text-sm font-semibold tracking-widest uppercase mb-6"
           >
-            Product Analyst · PM Candidate · Summer 2027
+            PM · TPM · Product Analyst · Summer 2027
           </p>
           <h1
             style={{ color: S.navy, fontFamily: "Inter, sans-serif", lineHeight: 1.1 }}
@@ -503,7 +330,8 @@ const App = () => {
             </button>
             <a
               href={data.resumePdf}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ border: `1.5px solid ${S.navy}`, color: S.navy, fontFamily: "Inter, sans-serif" }}
               className="px-6 py-3 rounded-md font-semibold text-sm hover:bg-gray-50 transition-colors flex items-center gap-2"
             >
@@ -560,15 +388,20 @@ const App = () => {
                   <div className="flex flex-wrap gap-2 mb-6">
                     {cs.tools.map((t) => <Tag key={t} label={t} />)}
                   </div>
-                  <a
-                    href={cs.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
-                    className="text-sm font-semibold flex items-center gap-1 hover:opacity-70 transition-opacity self-start"
-                  >
-                    {cs.cta} <ExternalLink size={13} />
-                  </a>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    {cs.links.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
+                        className="text-sm font-semibold flex items-center gap-1 hover:opacity-70 transition-opacity"
+                      >
+                        {l.label} <ExternalLink size={13} />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -664,7 +497,7 @@ const App = () => {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                   <div className="flex items-center gap-4">
                     <img
-                      src="/public\Tufts_University_logo.png"
+                      src="/Tufts_University_logo.png"
                       alt="Tufts University logo"
                       className="h-8 w-auto rounded-md object-contain"
                     />
@@ -679,7 +512,7 @@ const App = () => {
                         style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
                         className="text-xs font-semibold mb-1 max-w-xs"
                       >
-                        Master of Science in Innovation and Management
+                        Master of Science in Engineering Management (MSEM)
                       </p>
                     </div>
                   </div>
@@ -687,7 +520,7 @@ const App = () => {
                     style={{ border: `1px solid ${S.border}`, color: S.textMuted, background: S.surface, fontFamily: "Inter, sans-serif", whiteSpace: "nowrap" }}
                     className="text-xs font-medium px-4 py-1.5 rounded-full self-start"
                   >
-                    Aug 2026
+                    Aug 2026 – May 2028
                   </span>
                 </div>
 
@@ -701,7 +534,7 @@ const App = () => {
                       style={{ color: S.textMuted, fontFamily: "Inter, sans-serif" }}
                       className="text-sm leading-relaxed"
                     >
-                      Incoming MSIM student with a focus on product strategy, analytics, and cross-functional leadership.
+                      Graduate program that combines engineering, product and business leadership.
                     </p>
                   </li>
                 </ul>
@@ -731,7 +564,7 @@ const App = () => {
                         style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
                         className="text-xs font-semibold mb-1 max-w-xs"
                       >
-                        B.Tech in Computer Science and AI/ML . GPA 8.56/10                        
+                        B.Tech in Computer Science and AI/ML
                       </p>
                     </div>
                   </div>
@@ -739,7 +572,7 @@ const App = () => {
                     style={{ border: `1px solid ${S.border}`, color: S.textMuted, background: S.surface, fontFamily: "Inter, sans-serif", whiteSpace: "nowrap" }}
                     className="text-xs font-medium px-4 py-1.5 rounded-full self-start"
                   >
-                    2022-2026
+                    2022 – 2026
                   </span>
                 </div>
 
@@ -781,7 +614,9 @@ const App = () => {
             </h2>
           </Reveal>
 
-          <Reveal delay={50}>
+          <div className="space-y-6">
+          {data.experience.map((job, j) => (
+          <Reveal key={job.company} delay={50 + j * 80}>
             <div
               style={{ background: S.bg, border: `1px solid ${S.border}`, fontFamily: "Inter, sans-serif" }}
               className="rounded-2xl p-8 md:p-10"
@@ -789,28 +624,28 @@ const App = () => {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex items-center gap-4">
                   <img
-                    src="/smallfare_logo.jpg"
-                    alt="Small Fare Services logo"
-                    className="h-16 w-auto rounded-md object-contain"
+                    src={job.logo}
+                    alt={`${job.company} logo`}
+                    className={`${job.logoClass} w-auto rounded-md object-contain`}
                   />
                   <div>
                     <h3
                       style={{ color: S.navy, fontFamily: "Inter, sans-serif" }}
                       className="text-xl font-bold mb-1"
                     >
-                      {data.experience.company}
+                      {job.company}
                     </h3>
                     <p
                       style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
                       className="text-sm font-semibold mb-1"
                     >
-                      {data.experience.role}
+                      {job.role}
                     </p>
                     <p
                       style={{ color: S.textMuted, fontFamily: "Inter, sans-serif" }}
                       className="text-xs"
                     >
-                      {data.experience.product}
+                      {job.product}
                     </p>
                   </div>
                 </div>
@@ -818,12 +653,12 @@ const App = () => {
                   style={{ border: `1px solid ${S.border}`, color: S.textMuted, background: S.surface, fontFamily: "Inter, sans-serif", whiteSpace: "nowrap" }}
                   className="text-xs font-medium px-4 py-1.5 rounded-full self-start"
                 >
-                  {data.experience.period}
+                  {job.period}
                 </span>
               </div>
 
               <ul className="space-y-3">
-                {data.experience.bullets.map((b, i) => (
+                {job.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span
                       style={{ background: S.accent, flexShrink: 0 }}
@@ -840,6 +675,8 @@ const App = () => {
               </ul>
             </div>
           </Reveal>
+          ))}
+          </div>
         </div>
       </section>
 
@@ -881,39 +718,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* ── AI PLAYGROUND ── */}
-      <section id="play" style={{ background: S.surface }}>
-        <div className="max-w-5xl mx-auto px-6 py-20">
-          <Reveal>
-            <div className="flex items-center justify-between mb-2">
-              <p
-                style={{ color: S.accent, fontFamily: "Inter, sans-serif" }}
-                className="text-xs font-semibold tracking-widest uppercase"
-              >
-                AI Playground
-              </p>
-              <span
-                style={{ background: `${S.accent}12`, color: S.accent, fontFamily: "Inter, sans-serif" }}
-                className="text-xs font-medium px-3 py-1 rounded-full"
-              >
-                Powered by Gemini
-              </span>
-            </div>
-            <h2
-              style={{ color: S.navy, fontFamily: "Inter, sans-serif" }}
-              className="text-3xl font-bold mb-12"
-            >
-              Explore My Profile
-            </h2>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <Reveal delay={80}><AIChat /></Reveal>
-            <Reveal delay={160}><JobFitCheck /></Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* ── CONTACT ── */}
       <section id="contact" style={{ background: S.bg }}>
         <div className="max-w-5xl mx-auto px-6 py-24 text-center">
@@ -928,7 +732,7 @@ const App = () => {
               style={{ color: S.textMuted, fontFamily: "Inter, sans-serif" }}
               className="text-base md:text-lg mb-10 max-w-lg mx-auto leading-relaxed"
             >
-              Open to Summer 2027 PM and Product Analyst internships. Based in Medford, MA from August 2026.
+              Open to Summer 2027 PM, TPM and Product Analyst internships. Based in Medford, MA.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <a
@@ -939,7 +743,7 @@ const App = () => {
                 <Mail size={16} /> Email Me
               </a>
               <a
-                href={`https://${data.linkedin}`}
+                href={data.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ border: `1.5px solid ${S.navy}`, color: S.navy, fontFamily: "Inter, sans-serif" }}

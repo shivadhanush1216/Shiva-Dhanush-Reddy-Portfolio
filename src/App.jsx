@@ -14,6 +14,7 @@ import shotCopilot from "./assets/projects/copilot-app.webp";
 import shotZomato from "./assets/projects/zomato-wireframes-two.webp";
 import shotYtm from "./assets/projects/ytm-cover.webp";
 import shotForecast from "./assets/projects/forecast-chart.webp";
+import shotHomePlate from "./assets/projects/homeplate-chart.webp";
 
 // ─── Google Font: Inter ───────────────────────────────────────────────────────
 const fontLink = document.createElement("link");
@@ -64,6 +65,7 @@ const data = {
       image: shotCopilot,
       imageAlt: "The TGI Content Copilot web app",
       color: "#3172AE",
+      featured: true,
       links: [
         { label: "Live App", href: "https://tgi-content-copilot.onrender.com" },
         { label: "View Code", href: "https://github.com/shivadhanush1216/content-copilot" },
@@ -89,6 +91,19 @@ const data = {
       color: "#2A2A2A",
       links: [
         { label: "View Teardown", href: "https://drive.google.com/file/d/1ZCvcxRnlu4GUR6cWHgXUJZE17EYu4wSq/view?usp=sharing" },
+      ],
+    },
+    {
+      title: "HomePlate Financial Plan",
+      tags: ["Financial Model", "Unit Economics"],
+      desc: "A 5-year financial plan for a $10.50 dinner subscription for Texas A&M students. It breaks even at 61 subscribers in Year 2 and projects a 24.2% net margin by Year 5.",
+      image: shotHomePlate,
+      imageAlt: "Chart of projected HomePlate revenue and net income for Years 1 to 5",
+      imageFit: "contain",
+      imageBg: "#FFFFFF",
+      color: "#500000",
+      links: [
+        { label: "View Business Plan", href: "https://drive.google.com/file/d/1NWu_C2sgn2lrNYP4-hz53TgXgtY7llU2/view?usp=sharing" },
       ],
     },
     {
@@ -154,7 +169,7 @@ const data = {
 };
 
 // ─── Scroll Reveal ────────────────────────────────────────────────────────────
-const Reveal = ({ children, delay = 0 }) => {
+const Reveal = ({ children, delay = 0, className = "" }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
@@ -169,7 +184,7 @@ const Reveal = ({ children, delay = 0 }) => {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} ${className}`}
     >
       {children}
     </div>
@@ -337,14 +352,17 @@ const ExperienceItem = ({ job, last }) => {
 const ProjectCard = ({ cs }) => {
   const font = "'General Sans', Inter, sans-serif";
   return (
-    <article className="group h-full flex flex-col rounded-3xl overflow-hidden" style={{ background: cs.color, fontFamily: font }}>
+    <article
+      className={`group h-full flex flex-col rounded-3xl overflow-hidden ${cs.featured ? "md:grid md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]" : ""}`}
+      style={{ background: cs.color, fontFamily: font }}
+    >
       <a
         href={cs.links[0].href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${cs.links[0].label}: ${cs.title}`}
-        className="block overflow-hidden"
-        style={{ aspectRatio: "16 / 9.5", background: `color-mix(in srgb, ${cs.color} 22%, #ffffff)`, padding: "28px 28px 0" }}
+        className={`block overflow-hidden ${cs.featured ? "md:h-full md:min-h-[360px]" : ""}`}
+        style={{ aspectRatio: cs.featured ? undefined : "16 / 9.5", background: `color-mix(in srgb, ${cs.color} 22%, #ffffff)`, padding: "28px 28px 0" }}
       >
         <div
           className="w-full h-full overflow-hidden rounded-t-xl transition-transform duration-500 ease-out group-hover:-translate-y-1"
@@ -359,7 +377,7 @@ const ProjectCard = ({ cs }) => {
           />
         </div>
       </a>
-      <div className="flex flex-col flex-1 p-6 md:p-7 text-white">
+      <div className={`flex flex-col flex-1 p-6 md:p-7 text-white ${cs.featured ? "md:p-10 md:justify-center" : ""}`}>
         <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.75rem)", lineHeight: 1.2, fontWeight: 600 }}>{cs.title}</h3>
         <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1" style={{ fontSize: "1rem" }}>
           {cs.tags.map((t, i) => (
@@ -370,7 +388,7 @@ const ProjectCard = ({ cs }) => {
           ))}
         </p>
         <p className="mt-4" style={{ fontSize: "0.9375rem", lineHeight: 1.6, color: "rgba(255,255,255,0.92)" }}>{cs.desc}</p>
-        <div className="mt-auto pt-6 flex flex-wrap gap-x-6 gap-y-2">
+        <div className={`${cs.featured ? "mt-8" : "mt-auto pt-6"} flex flex-wrap gap-x-6 gap-y-2`}>
           {cs.links.map((l) => (
             <a
               key={l.href}
@@ -547,7 +565,7 @@ const App = () => {
           </Reveal>
           <div className="grid md:grid-cols-2 gap-6">
             {data.caseStudies.map((cs, i) => (
-              <Reveal key={cs.title} delay={i * 80}>
+              <Reveal key={cs.title} delay={i * 80} className={cs.featured ? "md:col-span-2" : ""}>
                 <ProjectCard cs={cs} />
               </Reveal>
             ))}
